@@ -1,69 +1,61 @@
-# React + TypeScript + Vite
+# 🧠 AWS Quiz Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**AWS Quiz Studio** is a simple, interactive web app that helps you **study and practice certification questions** — starting with **AWS Solutions Architect Associate (SAA-C03)** and **Scrum Master II**.
 
-Currently, two official plugins are available:
+It’s built to make self-learning **fun, fast, and effective** — whether you’re reviewing concepts or testing yourself before an exam.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ What You Can Do
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🗂️ **Choose your exam set**
+  - Easily switch between different exam banks like **AWS SAA** and **Scrum Master II**.  
+  - Each has its own questions and scoring system.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🎯 **Take quick quizzes**
+  - Pick how many questions you want and the mode:
+    - **Random** – get a new mix every time.  
+    - **Sequential** – follow the original order.  
+  - Get instant feedback after checking your answers.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- 📖 **Preview all questions**
+  - Browse through the question bank and show or hide the correct answers to review at your own pace.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- 📊 **Track your progress**
+  - Watch your progress bar fill as you move through the quiz.  
+  - See your final score when you finish.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 🌍 **English & Vietnamese support**
+  - The app automatically detects your browser language.  
+  - You can also switch languages anytime using the 🌐 button on the top right.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 💻 **Smooth, modern design**
+  - Clean interface, responsive on all devices.  
+  - Built with accessibility and usability in mind — no technical skills required!
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🚀 How to Use
+
+1. Open the app in your browser.  
+2. At the top, choose your **exam bank** (for example: AWS SAA or Scrum Master II).  
+3. Click **Start Quiz** to begin testing yourself.  
+4. Select your answers and press **Check** to see if you’re right.  
+5. Move on to the next question — or reset anytime!  
+6. Switch between **English 🇺🇸** and **Vietnamese 🇻🇳** whenever you like.
+
+---
+
+## ❤️ Why This App?
+
+Learning from long text documents or PDFs can be exhausting.  
+AWS Quiz Studio turns those questions into **an interactive, game-like experience** — so you can stay focused, learn faster, and actually enjoy preparing for your exam.
+
+---
+
+## 👨‍💻 About the Project
+
+Created with ❤️ by **Minh** using modern web tools like **React**, **TypeScript**, and **Tailwind CSS**.  
+The app runs completely in your browser — no login, no data collection, and no backend required.
+
+> “Learn smarter. Test faster. Track your progress — all in one place.”
