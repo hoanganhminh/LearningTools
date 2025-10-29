@@ -10,7 +10,7 @@
   "footer.built": "Được xây với ♥ bởi Minh",
 
   "home.startLearning": "Bắt đầu học",
-  "home.previewTitle": "Xem trước ngân hàng câu hỏi ({exam})",
+  "home.previewTitle": "Xem trước ngân hàng câu hỏi: {exam}",
   "home.total": "{count} câu hỏi trong ngân hàng",
   "home.desc": "Chọn chế độ ngẫu nhiên hoặc theo thứ tự để kiểm tra.",
   "home.btn.startQuiz": "Bắt đầu kiểm tra",
@@ -54,5 +54,9 @@
   "exams.label": "Bộ đề",
   "exams.select": "Chọn bộ đề",
   "exams.awsSAA": "Solutions Architect Associate (SAA-C03)",
-  "exams.scrumMasterII": "Scrum Master II (PSM II)"
+  "exams.awsCloudPractitioner": "Cloud Practitioner (CLF-C02)",
+  "exams.microsoftAzureAZ900": "Microsoft Azure AZ-900",
+  "exams.scrumMasterI": "Scrum Master I (PSM I)",
+  "exams.scrumMasterII": "Scrum Master II (PSM II)",
+  "exams.scrumDeveloperI": "Scrum Developer I (PSD I)"
 }

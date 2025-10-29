@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { useI18n } from "../locales/I18nProvider";
-
-export type ExamId = "aws-saa" | "scrum-master-ii";
-
+import type { ExamId } from "../types/quiz";
 type Props = {
   currentExam: ExamId;
   onChangeExam: (exam: ExamId) => void;
@@ -12,18 +10,20 @@ type Props = {
 export default function Header({ currentExam, onChangeExam }: Props) {
   const { t, lang, setLang } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false); // mobile hamburger
-  const [examOpen, setExamOpen] = useState(false); // exam dropdown (desktop & mobile)
-  const [kbdIndex, setKbdIndex] = useState<number>(-1); // keyboard active item
+  const [examOpen, setExamOpen] = useState(false); // exam dropdown
+  const [kbdIndex, setKbdIndex] = useState<number>(-1);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   const toggleLang = () => setLang(lang === "vi" ? "en" : "vi");
-  const examLabel = (id: ExamId) =>
-    id === "aws-saa" ? t("exams.awsSAA") : t("exams.scrumMasterII");
 
   const examItems: { id: ExamId; label: string }[] = [
     { id: "aws-saa", label: t("exams.awsSAA") },
+    { id: "aws-cloud-practitioner", label: t("exams.awsCloudPractitioner") },
+    { id: "azure-az900", label: t("exams.microsoftAzureAZ900") },
+    { id: "scrum-master-i", label: t("exams.scrumMasterI") },
     { id: "scrum-master-ii", label: t("exams.scrumMasterII") },
+    { id: "scrum-developer-i", label: t("exams.scrumDeveloperI") },
   ];
 
   // Close on outside click
@@ -45,7 +45,6 @@ export default function Header({ currentExam, onChangeExam }: Props) {
     return () => document.removeEventListener("mousedown", onDocClick);
   }, [examOpen]);
 
-  // Close on ESC
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -74,7 +73,6 @@ export default function Header({ currentExam, onChangeExam }: Props) {
     return () => document.removeEventListener("keydown", onKey);
   }, [examOpen, kbdIndex, examItems, onChangeExam]);
 
-  // When opening, focus first item for keyboard users
   useEffect(() => {
     if (examOpen) setKbdIndex(0);
     else setKbdIndex(-1);
@@ -144,7 +142,9 @@ export default function Header({ currentExam, onChangeExam }: Props) {
               onClick={() => setExamOpen((o) => !o)}
             >
               <span className="font-medium">{t("exams.label")}:</span>
-              <span>{examLabel(currentExam)}</span>
+              <span>
+                {examItems.find((x) => x.id === currentExam)?.label ?? ""}
+              </span>
               <ChevronDown
                 size={16}
                 className={`transition ${examOpen ? "rotate-180" : ""}`}
@@ -154,7 +154,7 @@ export default function Header({ currentExam, onChangeExam }: Props) {
           </div>
 
           {/* (optional) quick nav labels */}
-          <nav className="text-sm text-slate-600">
+          {/* <nav className="text-sm text-slate-600">
             <span className="mr-4 hover:text-brand-500 cursor-pointer">
               {t("nav.preview")}
             </span>
@@ -164,7 +164,7 @@ export default function Header({ currentExam, onChangeExam }: Props) {
             <span className="font-medium hover:text-brand-500 cursor-pointer">
               {t("nav.quiz")}
             </span>
-          </nav>
+          </nav> */}
 
           {/* Language toggle */}
           <button
@@ -204,7 +204,9 @@ export default function Header({ currentExam, onChangeExam }: Props) {
             >
               <span className="font-medium">{t("exams.label")}:</span>
               <div className="flex items-center gap-2">
-                <span className="text-slate-600">{examLabel(currentExam)}</span>
+                <span className="text-slate-600">
+                  {examItems.find((x) => x.id === currentExam)?.label ?? ""}
+                </span>
                 <ChevronDown
                   size={16}
                   className={`${examOpen ? "rotate-180" : ""} transition`}
@@ -256,7 +258,6 @@ export default function Header({ currentExam, onChangeExam }: Props) {
             title={t("lang.toggleLabel")}
             onClick={() => {
               toggleLang();
-              // giữ menu mở để user thấy thay đổi
             }}
             className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded border w-full justify-center"
           >

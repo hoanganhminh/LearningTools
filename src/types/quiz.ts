@@ -10,4 +10,10 @@ export type Question = {
   correctOptionId: string;
 };
 
-export type ExamId = "aws-saa" | "scrum-master-ii";
+export type ExamId =
+  | "aws-saa"
+  | "aws-cloud-practitioner"
+  | "azure-az900"
+  | "scrum-master-i"
+  | "scrum-master-ii"
+  | "scrum-developer-i";

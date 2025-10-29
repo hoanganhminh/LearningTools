@@ -28,9 +28,9 @@ export default function HomePage({ questions, examName, onStart }: Props) {
           >
             {t("home.btn.startQuiz")}
           </button>
-          <button className="w-full py-3 rounded border">
+          {/* <button className="w-full py-3 rounded border">
             {t("home.btn.studyEach")}
-          </button>
+          </button> */}
         </div>
       </aside>
 
