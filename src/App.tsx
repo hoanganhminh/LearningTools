@@ -5,9 +5,9 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import QuizPage from "./pages/QuizPage";
 import type { ExamId, Question } from "./types/quiz";
-import { awsSAAQuestions } from "./data/awsSAAQuestions";
 import { scrumMasterIIQuestions } from "./data/scrumMasterIIQuestions";
 import { I18nProvider, useI18n } from "./locales/I18nProvider";
+import { awsSAAQuestions } from "./data/awsSAAQuestions";
 
 type ExamMeta = {
   id: ExamId;
