@@ -13,6 +13,7 @@ import { microsoftAzureAZ900Questions } from "./data/microsoftAzureAZ900Question
 import { scrumMasterIQuestions } from "./data/scrumMasterIQuestions";
 import { scrumMasterIIQuestions } from "./data/scrumMasterIIQuestions";
 import { scrumDeveloperIQuestions } from "./data/scrumDeveloperIQuestions";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 type ExamMeta = {
   id: ExamId;
@@ -146,6 +147,7 @@ export default function App() {
       </main>
 
       <div className="hidden sm:block">
+        <ScrollToTopButton />
         <Footer />
       </div>
     </div>
