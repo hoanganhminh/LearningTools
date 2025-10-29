@@ -1,7 +1,7 @@
 {
   "language": "EN",
-  "app.title": "AWS Quiz Studio",
-  "app.subtitle": "Study and test your AWS question bank",
+  "app.title": "Quiz Studio",
+  "app.subtitle": "Study and test my question bank",
 
   "nav.preview": "Preview",
   "nav.study": "Study",
@@ -10,7 +10,7 @@
   "footer.built": "Built with ♥ by Minh",
 
   "home.startLearning": "Start learning",
-  "home.previewTitle": "Question bank preview (Solutions Architect Associate (SAA-C03))",
+  "home.previewTitle": "Question bank preview ({exam})",
   "home.total": "{count} questions in the bank",
   "home.desc": "Choose random or sequential mode to start a quiz.",
   "home.btn.startQuiz": "Start quiz",
@@ -49,5 +49,10 @@
 
   "lang.toggleLabel": "Switch language",
   "lang.vi": "VI",
-  "lang.en": "EN"
+  "lang.en": "EN",
+
+  "exams.label": "Exam banks",
+  "exams.select": "Select exam",
+  "exams.awsSAA": "AWS SAA",
+  "exams.scrumMasterII": "Scrum Master II"
 }

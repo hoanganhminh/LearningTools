@@ -1,6 +1,6 @@
 import type { Question } from "../types/quiz";
 
-export const awsQuestions: Question[] = [
+export const awsSAAQuestions: Question[] = [
   {
     id: "q1",
     prompt:

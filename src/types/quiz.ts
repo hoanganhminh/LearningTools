@@ -9,3 +9,5 @@ export type Question = {
   options: Option[];
   correctOptionId: string;
 };
+
+export type ExamId = "aws-saa" | "scrum-master-ii";

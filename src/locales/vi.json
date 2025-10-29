@@ -1,7 +1,7 @@
 {
   "language": "VI",
-  "app.title": "AWS Quiz Studio",
-  "app.subtitle": "Học và kiểm tra bank đề AWS",
+  "app.title": "Quiz Studio",
+  "app.subtitle": "Học và kiểm tra ngân hàng câu hỏi của tôi",
 
   "nav.preview": "Xem trước",
   "nav.study": "Học",
@@ -10,7 +10,7 @@
   "footer.built": "Được xây với ♥ bởi Minh",
 
   "home.startLearning": "Bắt đầu học",
-  "home.previewTitle": "Xem trước ngân hàng câu hỏi (Solutions Architect Associate (SAA-C03))",
+  "home.previewTitle": "Xem trước ngân hàng câu hỏi ({exam})",
   "home.total": "{count} câu hỏi trong ngân hàng",
   "home.desc": "Chọn chế độ ngẫu nhiên hoặc theo thứ tự để kiểm tra.",
   "home.btn.startQuiz": "Bắt đầu kiểm tra",
@@ -49,5 +49,10 @@
 
   "lang.toggleLabel": "Chuyển ngôn ngữ",
   "lang.vi": "VI",
-  "lang.en": "EN"
+  "lang.en": "EN",
+
+  "exams.label": "Bộ đề",
+  "exams.select": "Chọn bộ đề",
+  "exams.awsSAA": "AWS SAA",
+  "exams.scrumMasterII": "Scrum Master II"
 }

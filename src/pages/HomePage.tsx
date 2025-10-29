@@ -6,16 +6,16 @@ import { useI18n } from "../locales/I18nProvider";
 
 type Props = {
   questions: Question[];
+  examName: string;
   onStart: (mode: "random" | "sequential", count: number) => void;
 };
 
-export default function HomePage({ questions, onStart }: Props) {
+export default function HomePage({ questions, examName, onStart }: Props) {
   const { t } = useI18n();
   const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {/* Start learning section */}
       <aside className="bg-white p-6 rounded-2xl shadow-md order-1 md:order-none">
         <h3 className="text-lg font-semibold mb-2">
           {t("home.startLearning")}
@@ -34,11 +34,10 @@ export default function HomePage({ questions, onStart }: Props) {
         </div>
       </aside>
 
-      {/* Bank preview section */}
       <div className="md:col-span-2 order-2 md:order-none">
         <div className="mb-4 flex flex-col md:flex-row md:items-center md:justify-between">
           <h2 className="text-2xl font-semibold mb-2 md:mb-0">
-            {t("home.previewTitle")}
+            {t("home.previewTitle", { exam: examName })}
           </h2>
           <div className="text-sm text-slate-500">
             {t("home.total", { count: questions.length })}
