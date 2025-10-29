@@ -1,10 +1,10 @@
 import { useState } from "react";
 import type { Question } from "../types/quiz";
+import { useI18n } from "../locales/I18nProvider";
 
 function EyeIcon({ open = false }: { open?: boolean }) {
   return open ? (
-    // open eye
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M12 5c5 0 9.27 3.11 11 7-1.73 3.89-6 7-11 7S3.73 15.89 2 12c1.73-3.89 6-7 10-7z"
         stroke="currentColor"
@@ -15,8 +15,7 @@ function EyeIcon({ open = false }: { open?: boolean }) {
       <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ) : (
-    // closed eye
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M17.94 17.94C16.11 19.09 14.12 20 12 20c-5 0-9.27-3.11-11-7 .93-2.09 2.6-3.88 4.64-5.12M1 1l22 22"
         stroke="currentColor"
@@ -33,19 +32,21 @@ type Props = {
 };
 
 export default function BankPreview({ questions }: Props) {
+  const { t } = useI18n();
   const [revealMap, setRevealMap] = useState<Record<string, boolean>>({});
 
   return (
     <div className="space-y-4">
       {questions.map((q, idx) => {
         const show = !!revealMap[q.id];
-        // compute correct ids
-        const correctIds = q.correctOptionId.split(",");
+        const correctIds = q.correctOptionId.split(",").map((s) => s.trim());
         return (
           <div key={q.id} className="bg-white p-4 rounded-lg shadow-sm">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
-                <div className="font-medium mb-1">#{idx + 1}</div>
+                <div className="font-medium mb-1">
+                  {t("bank.questionNumber", { n: idx + 1 })}
+                </div>
                 <div className="text-sm text-slate-700 mb-3">{q.prompt}</div>
 
                 <div className="grid gap-2">
@@ -79,11 +80,14 @@ export default function BankPreview({ questions }: Props) {
 
               <div className="flex-shrink-0">
                 <button
-                  title={show ? "Hide answers" : "Show answers"}
+                  title={show ? t("bank.hideAnswers") : t("bank.showAnswers")}
                   onClick={() =>
                     setRevealMap((m) => ({ ...m, [q.id]: !m[q.id] }))
                   }
                   className="p-2 rounded-md border hover:bg-slate-50"
+                  aria-label={
+                    show ? t("bank.hideAnswers") : t("bank.showAnswers")
+                  }
                 >
                   <EyeIcon open={show} />
                 </button>

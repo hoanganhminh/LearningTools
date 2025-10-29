@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Question } from "../types/quiz";
 import ProgressBar from "../components/ProgressBar";
 import QuestionCard from "../components/QuestionCard";
+import { useI18n } from "../locales/I18nProvider";
 
 type Props = {
   questions: Question[];
@@ -20,6 +21,8 @@ function shuffle<T>(arr: T[]) {
 }
 
 export default function QuizPage({ questions, mode, count, onQuit }: Props) {
+  const { t } = useI18n();
+
   const prepared = useMemo(() => {
     return mode === "random"
       ? shuffle(questions).slice(0, count)
@@ -105,7 +108,7 @@ export default function QuizPage({ questions, mode, count, onQuit }: Props) {
     if (!checked) return;
     if (index + 1 >= prepared.length) {
       setTimeout(() => {
-        alert(`Kết thúc! Điểm của bạn: ${score}/${prepared.length}`);
+        alert(t("quiz.done", { score, total: prepared.length }));
         onQuit();
       }, 100);
       return;
@@ -121,17 +124,17 @@ export default function QuizPage({ questions, mode, count, onQuit }: Props) {
     <div className="max-w-3xl mx-auto px-3 sm:px-4">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">
         <div className="text-sm text-slate-600">
-          Mode: <span className="font-medium">{mode}</span>
+          {t("quiz.mode")}: <span className="font-medium">{mode}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="text-sm text-slate-600">
-            Score: <span className="font-semibold">{score}</span>
+            {t("quiz.score")}: <span className="font-semibold">{score}</span>
           </div>
           <button
             onClick={() => setShowQuitConfirm(true)}
             className="text-sm px-3 py-1 rounded border hover:bg-slate-100"
           >
-            Thoát
+            {t("quiz.quit")}
           </button>
         </div>
       </div>
@@ -159,7 +162,7 @@ export default function QuizPage({ questions, mode, count, onQuit }: Props) {
                 setRevealState({});
               }}
             >
-              Reset selection
+              {t("quiz.reset")}
             </button>
 
             <button
@@ -167,7 +170,7 @@ export default function QuizPage({ questions, mode, count, onQuit }: Props) {
               disabled={selectedIds.length === 0 || checked || disabledOps}
               className="px-4 py-2 rounded bg-brand-500 text-white disabled:opacity-50"
             >
-              Kiểm tra
+              {t("quiz.check")}
             </button>
 
             <button
@@ -175,33 +178,36 @@ export default function QuizPage({ questions, mode, count, onQuit }: Props) {
               className="px-4 py-2 rounded border hover:bg-slate-50 sm:ml-auto"
               disabled={!checked}
             >
-              {index + 1 >= prepared.length ? "Xem kết quả" : "Câu tiếp theo"}
+              {index + 1 >= prepared.length
+                ? t("quiz.viewResult")
+                : t("quiz.next")}
             </button>
           </div>
 
           <div className="mt-3 text-sm text-slate-500">
-            Bạn đã làm {index + (checked ? 1 : 0)} / {prepared.length}
+            {t("quiz.selectedProgress", {
+              done: index + (checked ? 1 : 0),
+              total: prepared.length,
+            })}
           </div>
         </>
       ) : (
-        <div>Không có câu hỏi</div>
+        <div>{t("quiz.noQuestions")}</div>
       )}
 
       {showQuitConfirm && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl shadow-lg p-6 max-w-sm w-full">
             <h2 className="text-lg font-semibold text-slate-800 mb-3">
-              Thoát bài kiểm tra?
+              {t("quit.title")}
             </h2>
-            <p className="text-sm text-slate-600 mb-4">
-              Bạn sẽ mất toàn bộ tiến độ hiện tại. Bạn có chắc chắn muốn thoát?
-            </p>
+            <p className="text-sm text-slate-600 mb-4">{t("quit.desc")}</p>
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setShowQuitConfirm(false)}
                 className="px-4 py-2 rounded border hover:bg-slate-100"
               >
-                Hủy
+                {t("quit.cancel")}
               </button>
               <button
                 onClick={() => {
@@ -210,7 +216,7 @@ export default function QuizPage({ questions, mode, count, onQuit }: Props) {
                 }}
                 className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
               >
-                Thoát
+                {t("quit.confirm")}
               </button>
             </div>
           </div>

@@ -3,7 +3,7 @@ import AnswerButton from "./AnswerButton";
 
 type Props = {
   q: Question;
-  selectedIds: string[]; // hỗ trợ multi-select
+  selectedIds: string[];
   onToggle: (id: string) => void;
   disabled: boolean;
   revealState?: { [id: string]: "neutral" | "correct" | "incorrect" };
@@ -31,7 +31,7 @@ export default function QuestionCard({
             selected={isSelected(opt.id)}
             disabled={disabled}
             state={revealState[opt.id] ?? "neutral"}
-            onClick={(id) => onToggle(id)}
+            onClick={onToggle}
           />
         ))}
       </div>

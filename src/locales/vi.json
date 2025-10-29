@@ -1,0 +1,53 @@
+{
+  "language": "VI",
+  "app.title": "AWS Quiz Studio",
+  "app.subtitle": "Học và kiểm tra bank đề AWS",
+
+  "nav.preview": "Xem trước",
+  "nav.study": "Học",
+  "nav.quiz": "Làm bài",
+
+  "footer.built": "Được xây với ♥ bởi Minh",
+
+  "home.startLearning": "Bắt đầu học",
+  "home.previewTitle": "Xem trước ngân hàng câu hỏi (Solutions Architect Associate (SAA-C03))",
+  "home.total": "{count} câu hỏi trong ngân hàng",
+  "home.desc": "Chọn chế độ ngẫu nhiên hoặc theo thứ tự để kiểm tra.",
+  "home.btn.startQuiz": "Bắt đầu kiểm tra",
+  "home.btn.studyEach": "Học từng câu (sắp ra mắt)",
+
+  "bank.questionNumber": "#{n}",
+  "bank.showAnswers": "Hiện đáp án",
+  "bank.hideAnswers": "Ẩn đáp án",
+
+  "start.title": "Bắt đầu kiểm tra",
+  "start.desc": "Chọn chế độ và số câu hỏi",
+  "start.mode": "Chế độ",
+  "start.mode.random": "Ngẫu nhiên",
+  "start.mode.sequential": "Theo thứ tự",
+  "start.countLabel": "Số câu hỏi (1 - {max})",
+  "start.btn.cancel": "Hủy",
+  "start.btn.start": "Bắt đầu",
+
+  "progress.label": "Tiến độ",
+
+  "quiz.mode": "Chế độ",
+  "quiz.score": "Điểm",
+  "quiz.quit": "Thoát",
+  "quiz.reset": "Xóa lựa chọn",
+  "quiz.check": "Kiểm tra",
+  "quiz.next": "Câu tiếp theo",
+  "quiz.viewResult": "Xem kết quả",
+  "quiz.done": "Kết thúc! Điểm của bạn: {score}/{total}",
+  "quiz.selectedProgress": "Bạn đã làm {done} / {total}",
+  "quiz.noQuestions": "Không có câu hỏi",
+
+  "quit.title": "Thoát bài kiểm tra?",
+  "quit.desc": "Bạn sẽ mất toàn bộ tiến độ hiện tại. Bạn có chắc chắn muốn thoát?",
+  "quit.cancel": "Hủy",
+  "quit.confirm": "Thoát",
+
+  "lang.toggleLabel": "Chuyển ngôn ngữ",
+  "lang.vi": "VI",
+  "lang.en": "EN"
+}

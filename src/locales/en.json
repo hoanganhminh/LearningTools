@@ -1,0 +1,53 @@
+{
+  "language": "EN",
+  "app.title": "AWS Quiz Studio",
+  "app.subtitle": "Study and test your AWS question bank",
+
+  "nav.preview": "Preview",
+  "nav.study": "Study",
+  "nav.quiz": "Quiz",
+
+  "footer.built": "Built with ♥ by Minh",
+
+  "home.startLearning": "Start learning",
+  "home.previewTitle": "Question bank preview (Solutions Architect Associate (SAA-C03))",
+  "home.total": "{count} questions in the bank",
+  "home.desc": "Choose random or sequential mode to start a quiz.",
+  "home.btn.startQuiz": "Start quiz",
+  "home.btn.studyEach": "Study one-by-one (coming soon)",
+
+  "bank.questionNumber": "#{n}",
+  "bank.showAnswers": "Show answers",
+  "bank.hideAnswers": "Hide answers",
+
+  "start.title": "Start quiz",
+  "start.desc": "Pick a mode and number of questions",
+  "start.mode": "Mode",
+  "start.mode.random": "Random",
+  "start.mode.sequential": "Sequential",
+  "start.countLabel": "Number of questions (1 - {max})",
+  "start.btn.cancel": "Cancel",
+  "start.btn.start": "Start",
+
+  "progress.label": "Progress",
+
+  "quiz.mode": "Mode",
+  "quiz.score": "Score",
+  "quiz.quit": "Quit",
+  "quiz.reset": "Reset selection",
+  "quiz.check": "Check",
+  "quiz.next": "Next question",
+  "quiz.viewResult": "View result",
+  "quiz.done": "Finished! Your score: {score}/{total}",
+  "quiz.selectedProgress": "You have answered {done} / {total}",
+  "quiz.noQuestions": "No questions",
+
+  "quit.title": "Quit the quiz?",
+  "quit.desc": "You will lose your current progress. Are you sure you want to quit?",
+  "quit.cancel": "Cancel",
+  "quit.confirm": "Quit",
+
+  "lang.toggleLabel": "Switch language",
+  "lang.vi": "VI",
+  "lang.en": "EN"
+}

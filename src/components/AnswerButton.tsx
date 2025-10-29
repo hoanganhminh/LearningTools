@@ -23,7 +23,6 @@ export default function AnswerButton({
   const selectedClass = "ring-2 ring-offset-1 ring-brand-300";
   const correctClass = "bg-emerald-50 border-emerald-300";
   const incorrectClass = "bg-rose-50 border-rose-300 animate-pulse";
-  //const hiddenCorrect = "bg-emerald-50/30";
 
   return (
     <button
@@ -51,7 +50,6 @@ export default function AnswerButton({
         <div className="flex-1">
           <div className="leading-snug">{text}</div>
         </div>
-        {/* optional status pill */}
         {state === "correct" && (
           <div className="text-sm text-emerald-700 font-medium ml-2">✓</div>
         )}

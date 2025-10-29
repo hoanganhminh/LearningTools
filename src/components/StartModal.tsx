@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useI18n } from "../locales/I18nProvider";
 
 type Props = {
   maxCount: number;
@@ -7,6 +8,7 @@ type Props = {
 };
 
 export default function StartModal({ maxCount, onStart, onClose }: Props) {
+  const { t } = useI18n();
   const [mode, setMode] = useState<"random" | "sequential">("random");
   const [count, setCount] = useState<number>(Math.min(10, maxCount));
 
@@ -15,12 +17,12 @@ export default function StartModal({ maxCount, onStart, onClose }: Props) {
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
       <div className="relative bg-white rounded-xl shadow-xl p-5 sm:p-6 w-full max-w-sm sm:max-w-md md:max-w-lg">
         <h3 className="text-lg sm:text-xl font-semibold mb-2">
-          Bắt đầu kiểm tra
+          {t("start.title")}
         </h3>
-        <p className="text-sm text-slate-600 mb-4">Chọn chế độ và số câu hỏi</p>
+        <p className="text-sm text-slate-600 mb-4">{t("start.desc")}</p>
 
         <div className="mb-4">
-          <label className="block text-sm mb-1">Chế độ</label>
+          <label className="block text-sm mb-1">{t("start.mode")}</label>
           <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={() => setMode("random")}
@@ -30,7 +32,7 @@ export default function StartModal({ maxCount, onStart, onClose }: Props) {
                   : "border hover:bg-slate-50"
               }`}
             >
-              Random
+              {t("start.mode.random")}
             </button>
             <button
               onClick={() => setMode("sequential")}
@@ -40,14 +42,14 @@ export default function StartModal({ maxCount, onStart, onClose }: Props) {
                   : "border hover:bg-slate-50"
               }`}
             >
-              Theo thứ tự
+              {t("start.mode.sequential")}
             </button>
           </div>
         </div>
 
         <div className="mb-6">
           <label className="block text-sm mb-1">
-            Số câu hỏi (1 - {maxCount})
+            {t("start.countLabel", { max: maxCount })}
           </label>
           <input
             type="number"
@@ -68,13 +70,13 @@ export default function StartModal({ maxCount, onStart, onClose }: Props) {
             onClick={onClose}
             className="px-4 py-2 rounded border w-full sm:w-auto"
           >
-            Hủy
+            {t("start.btn.cancel")}
           </button>
           <button
             onClick={() => onStart(mode, count)}
             className="px-4 py-2 rounded bg-brand-500 text-white w-full sm:w-auto"
           >
-            Bắt đầu
+            {t("start.btn.start")}
           </button>
         </div>
       </div>
